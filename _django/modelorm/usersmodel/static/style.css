@@ -1,0 +1,28 @@
+.container{
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+}
+
+h1{
+    text-align: center;
+}
+
+.firstdiv{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.seconddiv{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.add{
+    margin-left: 300px;
+    margin-top: 50px;
+    width: 50px;
+    background-color: aquamarine;
+}

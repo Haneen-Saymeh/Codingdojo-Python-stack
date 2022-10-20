@@ -1,0 +1,78 @@
+.container{
+    margin: 0 auto;
+   
+   
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+p {
+    text-align: center;
+    color: black;
+}
+
+
+.innum{
+    margin: 0 auto;
+    margin-left: 670px;
+    margin-top: 20px;
+    
+}
+
+.endgame{
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    margin-left: 700px;
+}
+
+.submitnum{
+    background-color: turquoise;
+    color: white;
+    margin-top: 20px;
+    margin-left: 710px;
+}
+
+
+
+.resultbox1{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    color: black;
+    margin-left: 700px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+
+}
+
+
+.resultbox2{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    color: black;
+    margin-left: 700px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+
+}
+
+.resultbox3{
+    width: 100px;
+    height: 100px;
+    background-color:green;
+    color: black;
+    margin-left: 700px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+
+}

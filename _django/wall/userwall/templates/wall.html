@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-dark bg-dark">
+            <form class="form-inline">
+              <h1 style="color: white"  >CodingDojo Wall</h1>
+              <h3  style="margin-left: 100px; color: white;" >Welcome    {{request.session.firstname}} !</h3>
+              <a href="/user/logout"  style="margin-left: 700px">logout</a>
+            </form>
+          </nav>
+    </div>
+
+<form action="/wall/addmessage" method="post"  >
+    {% csrf_token %}
+    <div class="form-group" style="width:600px ; margin-left:50px; margin-top: 50px; " >
+        <label for="exampleFormControlTextarea1"    >Post a message!</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"  ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left:50px " >Post</button>
+    </form>
+
+    <div  style="margin-left: 50px; margin-top:70px " >
+
+{%for message in messages%}
+<p>{{message.user.first_name}}   {{message.user.last_name}}  {{message.created_at}}</p>
+<p>{{message.message}}</p>
+
+
+{%if message.user.id == request.session.userid%}
+
+<form action="/wall/delmsg" method="post"  >
+  {% csrf_token %}
+  <button type="submit"  class="btn btn-primary" style="margin-left:50px " name="message_id" value="{{message.id}}"> Delete </button>
+</form>
+
+{%endif%}
+
+
+
+
+<div  style="margin-left: 50px"  >
+{%for comment in message.comments.all%}
+<p>{{comment.user.first_name}}   {{comment.user.last_name}}  {{comment.created_at}}</p>
+<p>{{comment.comment}} </p> 
+
+{%endfor%}
+
+</div>
+<form action="/wall/addcomment/{{message.id}}" method="post"  >
+  {% csrf_token %}
+  <div class="form-group" style="width:600px ; margin-left:50px; margin-top: 50px; " >
+      <label for="exampleFormControlTextarea1"    >Post a comment!</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"  ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-left:50px ; margin-bottom: 10px;" >Post</button>
+  </form>
+  
+{%endfor%}
+</div>
+
+
+
+</body>
+</html>

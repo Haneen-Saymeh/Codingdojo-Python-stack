@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div style="margin: 0 auto; width: 800px; height: 900px; margin-top: 20px; " >
+      
+    <h1>Edit Show {{oneshow.id}}</h1>
+    <div><a href="/shows" style="margin-left:700px; text-decoration:underline; font-size:large "   >Go Back</a></div>
+    
+    <form method="post"   action="/shows/{{oneshow.id}}/update" >
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="formGroupExampleInput">Title</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="{{oneshow.title}}"  >
+
+          <div class="form-row">
+            <div class="col">
+                <label for="formGroupExampleInput">Network</label>
+              <input type="text" class="form-control" name="network"  value="{{oneshow.network}}" >
+            </div>
+            <div class="col">
+            <label for="formGroupExampleInput">Release Date</label>
+              <input type="date" class="form-control" name="date" value="{{oneshow.release_date}}" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc" value="{{oneshow.description}}"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Update!</button>
+
+          {% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+        
+      </form>
+
+
+      <div  style="margin-top:20px"  ><a href="/shows/{{oneshow.id}}" style=" text-decoration:underline; font-weight: bold; "  >Go To The Show!</a></div>
+
+      
+
+      
+
+    </div>
+</body>
+</html>

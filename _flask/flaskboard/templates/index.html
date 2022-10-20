@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<style>
+    .color1{
+        background-color: {{color_in1}};
+    }
+
+    .color2{
+        background-color: {{color_in2}};
+    }
+</style>
+<body>
+
+    <h1>y by x checkerboard </h1>
+    <table>
+
+        {%for i in range (numy) %}
+        <tr>
+            {%for j in range (numx)  %}
+            <td class="color1"></td>
+            <td class="color2" ></td>
+            {%endfor%}
+        </tr>
+
+
+        <tr>
+            {% for j in range (numx) %}
+            <td class="color2" ></td>
+            <td class="color1"></td>
+            {%endfor%}
+            
+        </tr>
+
+        {%endfor%}
+
+        <!-- <tr>
+            <td class="black"></td>
+            <td class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+        </tr>
+
+
+        <tr>
+            <td class="red"  ></td>
+            <td class="black"></td>
+            <td class="red" ></td>
+            <td class="black"   ></td>
+            <td class="red" ></td>
+            <td class="black"   ></td>
+            <td class="red"  ></td>
+            <td  class="black"  ></td>
+        </tr>
+
+        <tr>
+            <td class="black"></td>
+            <td class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+        </tr>
+
+
+        <tr>
+            <td class="red"  ></td>
+            <td class="black"></td>
+            <td class="red" ></td>
+            <td class="black"   ></td>
+            <td class="red" ></td>
+            <td class="black"   ></td>
+            <td class="red"  ></td>
+            <td  class="black"  ></td>
+        </tr>
+
+        <tr>
+            <td class="black"></td>
+            <td class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+            <td class="black" ></td>
+            <td  class="red" ></td>
+        </tr>
+
+
+        <tr>
+            <td class="red"  ></td>
+            <td class="black"></td>
+            <td class="red" ></td>
+            <td class="black"   ></td>
+            <td class="red" ></td>
+            <td class="black"   ></td>
+            <td class="red"  ></td>
+            <td  class="black"  ></td>
+        </tr> -->
+        
+       
+    </table>
+
+
+
+   
+  
+</body>
+</html>

@@ -1,0 +1,16 @@
+.container{
+    margin: 0 auto;
+    width: 300px;
+    height: 100px;
+    background-color: palevioletred;
+    margin-top: 10%;
+    padding-top: 10px;
+    
+}
+
+.container p{
+
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}

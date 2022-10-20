@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin: 0 auto; width:500px;padding:10px; height:500px; border:1px solid black; background-color: aquamarine;" >
+        <h1>{{oneauthor.first_name}} {{oneauthor.last_name}}</h1>
+        <div  style="margin-left: 400px; margin-top:20px" ><a href="/">Go Back</a></div>
+        <p>ID: {{oneauthor.id}}</p>
+        <p>Notes:{{oneauthor.notes}}</p>
+        <p>Books:</p>
+{%for book in oneauthor.books.all%}
+        <ul>
+{{book.title}}
+        </ul>
+        {%endfor%}
+
+    <form action="/booktoauth/{{oneauthor.id}}"  method="post">
+        {% csrf_token %}
+
+    <select name="selectbooks" id="select">
+        {%for book in allbooks%}
+        {%if book not in oneauthor.books.all%}
+        <option value="{{book.id}}" >{{book.title}}</option>
+        {%endif%}
+        {%endfor%}
+
+           
+        
+    </select>
+    <button  style="background-color:peachpuff " >Add</button>
+</form>
+
+    
+
+    </div>
+</body>
+</html>

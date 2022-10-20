@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin: 0 auto ; width:700px; height:300px; margin-top:200px; background-color:papayawhip; padding:10px  "  >
+        <h2> Are you sure you want to delete the following course?!</h2>
+
+        <p>Name: {{onecourse.name}}</p>
+        <p>Description: {{onecourse.description}}</p>
+<div style="display: flex;justify-content:space-around; margin-top: 50px;"  >
+            <form action="/" method="post">
+                {% csrf_token %}
+                <button   style="background-color: grey; width: 70px" >No</button>
+            </form>
+
+
+            <form action="/destroy/{{onecourse.id}}" method="post">
+                {% csrf_token %}
+                <button style="background-color: red; width: 180px; color:white" >Yes! I want to delete this!</button>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

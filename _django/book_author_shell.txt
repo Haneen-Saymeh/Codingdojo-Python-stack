@@ -1,0 +1,173 @@
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py startapp bookapp
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>code .
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py makemigrations
+Migrations for 'bookapp':
+  bookapp\migrations\0001_initial.py
+    - Create model Book
+    - Create model Author
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, bookapp, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying bookapp.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py shell
+Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from bookapp.models import *
+>>> Book.objects.create(title="C sharp", desc= "nothing")
+<Book: Book object (1)>
+>>> Book.objects.create(title="Java", desc= "nothing")
+<Book: Book object (2)>
+>>> Book.objects.create(title="Python", desc= "nothing")
+<Book: Book object (3)>
+>>> Book.objects.create(title="PHP", desc= "nothing")
+<Book: Book object (4)>
+>>> Book.objects.create(title="Ruby", desc= "nothing")
+<Book: Book object (5)>
+>>> Author.objects.create(first_name="Jane", last_name="Austen")
+<Author: Author object (1)>
+>>> Author.objects.create(first_name="Emily", last_name="Dickinson")
+<Author: Author object (2)>
+>>> Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+<Author: Author object (3)>
+>>> Author.objects.create(first_name="Willia", last_name="Shakespeare")
+<Author: Author object (4)>
+>>> Author.objects.create(first_name="Lau", last_name="Tzu")
+<Author: Author object (5)>
+
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py makemigrations
+It is impossible to add a non-nullable field 'notes' to author without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 2
+
+
+ from bookapp.models import *
+>>> bookC= Book.objects.get(id=1)
+>>> bookC.title= "C#"
+>>> bookC.save()
+
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py makemigrations
+Migrations for 'bookapp':
+  bookapp\migrations\0002_author_notes.py
+    - Add field notes to author
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\booksproj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, bookapp, contenttypes, sessions
+Running migrations:
+  Applying bookapp.0002_author_notes... OK
+
+ from bookapp.models import *
+>>> author4= Author.objects.get(id=4)
+>>> author4.first_name= "Bill"
+>>> author4.save()
+>>> author1 = Author.objects.get(id=1)
+>>> book1= Book.objects.get(id=1)
+>>> book2= Book.objects.get(id=2)
+author1.books.add(book1)
+>>> author1.books.add(book2)
+
+author2= Author.objects.get(id =2)
+>>> book3=Book.objects.get(id=3)
+>>> author2.books.add(book1)
+>>> author2.books.add(book2)
+author2.books.add(book3)
+
+
+
+>>> book4 = Book.objects.get(id=4)
+>>> author3= Author.objects.get(id=3)
+>>> author3.books.add(book1)
+>>> author3.books.add(book2)
+>>> author3.books.add(book3)
+>>> author3.books.add(book4)
+
+book5= Book.objects.get(id=5)
+>>> author4=Author.objects.get(id=4)
+>>> author4.books.add(book1)
+>>> author4.books.add(book2)
+>>> author4.books.add(book3)
+
+author4.books.add(book4)
+>>> author4.books.add(book4)
+>>> author4.books.add(book5)
+
+
+>>> book3.authors.all().values()
+<QuerySet [{'id': 2, 'first_name': 'Emily', 'last_name': 'Dickinson', 'notes': 'Not availabe', 'created_at': datetime.datetime(2022, 9, 27, 10, 10, 49, 490445, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 10, 49, 490948, tzinfo=datetime.timezone.utc)}, {'id': 3, 'first_name': 'Fyodor', 'last_name': 'Dostoevsky', 'notes': 'Not availabe', 'created_at': datetime.datetime(2022, 9, 27, 10, 11, 24, 581174, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 11, 24, 581633, tzinfo=datetime.timezone.utc)}, {'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'notes': 'Not availabe', 'created_at': datetime.datetime(2022, 9, 27, 10, 12, 8, 55631, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 26, 44, 985678, tzinfo=datetime.timezone.utc)}]>
+
+book3.authors.remove(author2)
+
+book3.authors.all().values()
+<QuerySet [{'id': 3, 'first_name': 'Fyodor', 'last_name': 'Dostoevsky', 'notes': 'Not availabe', 'created_at': datetime.datetime(2022, 9, 27, 10, 11, 24, 581174, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 11, 24, 581633, tzinfo=datetime.timezone.utc)}, {'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'notes': 'Not availabe', 'created_at': datetime.datetime(2022, 9, 27, 10, 12, 8, 55631, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 26, 44, 985678, tzinfo=datetime.timezone.utc)}]>
+
+ author5 = Author.objects.get(id=5)
+>>> book2.authors.add(author5)
+
+
+author3.books.all().values()
+<QuerySet [{'id': 1, 'title': 'C#', 'desc': 'nothing', 'created_at': datetime.datetime(2022, 9, 27, 10, 5, 57, 286031, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 20, 56, 704590, tzinfo=datetime.timezone.utc)}, {'id': 2, 'title': 'Java', 'desc': 'nothing', 'created_at': datetime.datetime(2022, 9, 27, 10, 7, 11, 13414, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 7, 11, 13913, tzinfo=datetime.timezone.utc)}, {'id': 3, 'title': 'Python', 'desc': 'nothing', 'created_at': datetime.datetime(2022, 9, 27, 10, 7, 20, 46831, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 7, 20, 46831, tzinfo=datetime.timezone.utc)}, {'id': 4, 'title': 'PHP', 'desc': 'nothing', 'created_at': datetime.datetime(2022, 9, 27, 10, 7, 30, 781796, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 7, 30, 781796, tzinfo=datetime.timezone.utc)}]>
+
+ book5.authors.all().values()
+<QuerySet [{'id': 4, 'first_name': 'Bill', 'last_name': 'Shakespeare', 'notes': 'Not availabe', 'created_at': datetime.datetime(2022, 9, 27, 10, 12, 8, 55631, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 27, 10, 26, 44, 985678, tzinfo=datetime.timezone.utc)}]>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <div  style="display: flex; justify-content: space-around "  >
+    <div style="width:500px; height:500px; padding: 15px  "  >
+        <h1>Rgistration!</h1>
+    <form  method="post"  action="/reg"  style="margin-top: 20px"   >
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="firstName">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="lastName">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Birthday</label>
+            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="birthday">
+        </div>
+
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Confirm PW</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="conpassword">
+          </div>
+
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+
+
+<div style="width:500px; height:500px; padding: 15px; margin-top: 10px "   >
+  <h1>Login!</h1>
+  <form action="/login"  method="post" >
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login!</button>
+
+
+  </form>
+</div>
+
+</div>
+
+
+
+
+<div style="margin-left: 900px"  >
+
+    {% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+</body>
+</html>

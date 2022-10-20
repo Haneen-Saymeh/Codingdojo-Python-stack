@@ -1,0 +1,59 @@
+.container {
+margin: 0 auto;
+width: 700px;
+height: 1000px;
+
+padding: 15px;
+}
+
+section{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+h2{
+  
+    text-decoration: underline firebrick;
+    font-family: sans-serif;
+}
+
+.datatable{
+    margin-top: 20px;
+    margin-left: 200px;
+
+}
+
+hr{
+    margin-top: 50px;
+}
+
+.add2{
+width: 70px;
+height: 30px;
+margin-top: 20px;
+background-color: firebrick;
+color: white;
+font-family: sans-serif;
+font-size: 17px;
+}
+
+
+
+.add1{
+    width: 70px;
+    height: 30px;
+    margin-top: 10px;
+    font-family: sans-serif;
+   
+    background-color: firebrick;
+    color: white;
+    font-size: 17px;
+}
+
+p{
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+

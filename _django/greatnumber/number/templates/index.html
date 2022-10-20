@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}	
+    <link rel="stylesheet" href="{% static 'style2.css' %}"> 
+</head>
+<body>
+    <div class="container">
+        <form action="/process" method="post">
+            {% csrf_token %}
+            <h1>Welcome to the great number game</h1>
+            <p>I am thinking of a number between 1 and 100</p>
+            <p>Take a guess!</p>
+
+            {% if status == "Too high!" %}
+            <div  class="resultbox1">The number is too high</div>
+            {%endif%}
+    
+            {% if status == "Too low!" %}
+            <div  class="resultbox2">The number is too low</div>
+            {%endif%}
+    
+    
+            {% if status == "same number!" %}
+            <div  class="resultbox3">{{number2}} was the number!!!</div>
+            {%endif%}
+
+
+
+
+
+            <div><input type="text", name="inputnumber" class="innum"></div>
+    <button class="submitnum">Submit</button> 
+
+        </form>
+
+        <form action="/destroy" >
+            {% csrf_token %}
+            <button class="endgame">End game</button>
+        </form>
+    </div>
+</body>
+</html>

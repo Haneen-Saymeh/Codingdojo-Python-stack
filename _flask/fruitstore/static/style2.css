@@ -1,0 +1,26 @@
+.container{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    padding-left: 30px;
+    padding-top: 30px;
+    background-color: palevioletred;
+}
+
+h1 {
+    color: white;
+}
+
+h3{
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+
+table{
+    border-color: white;
+    color: white;
+}

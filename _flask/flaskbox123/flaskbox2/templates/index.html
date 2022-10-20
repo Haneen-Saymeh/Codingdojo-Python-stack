@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        margin: 0 auto;
+        width: 800px;
+        height: 700px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .box{
+        background-color: teal;
+        width: 100px;
+        height: 100px;
+        margin-right: 15px;
+    }
+
+
+</style>
+<body>
+    <header>
+        <h1  style="text-align: center" >WELCOME!</h1>
+    </header>
+    <div class="container">
+      
+        
+        {% for x in range(0,times) %}
+        <div class="box"></div>
+   
+{% endfor %}
+
+    
+        
+    </div>
+</body>
+</html>

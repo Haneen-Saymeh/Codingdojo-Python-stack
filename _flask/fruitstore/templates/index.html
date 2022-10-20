@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Dojo Fruit Store!</h1>
+        <form method="post", action="/finalorder">
+            <table border="1">
+
+                <tr>
+                    <th>Fruit Name</th>
+                    <th>Quantity</th>
+                </tr>
+               
+
+                <tr>
+                    <td>Strawberry</td>
+                    <td><select name="fruit1" id="fruit1">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Roseberry</td>
+                    <td><select name="fruit2" id="fruit2">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Apple</td>
+                    <td><select name="fruit3" id="fruit3">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select></td>
+                </tr>
+            </table>
+
+            <div>
+                <h2>Your infromation</h2>
+                <p>Name: <input type="text" name="name"></p>
+                <p>Your student ID <input type="text" name="id"></p>
+            </div>
+
+            <button>Buy me stuff</button>
+
+
+
+        </form>
+    </div>
+</body>
+</html>

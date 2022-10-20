@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1  >Thank you for your order!</h1>
+        <p>We ordered 
+            {{sum}} 
+            items for you and charged your <br>student account on September, the 19th,2022 3:15 PM </p>
+
+
+        <table border="1">
+            <tr>
+                <th>Fruit</th>
+                <th>Quantity</th>
+            </tr>
+
+            <tr>
+                <td>Strawberry</td>
+                <td>{{fruit1}}</td>
+            </tr>
+
+            <tr>
+                <td>Roseberry</td>
+                <td>{{fruit2}}</td>
+            </tr>
+
+            <tr>
+                <td>Apple</td>
+                <td>{{fruit3}}</td>
+            </tr>
+        </table>
+
+        <div>
+            <h3>Your information</h3>
+            <p>Name:  {{name}}</p>
+            <p>Your Student ID:   {{id}}</p>
+        </div>
+
+    </div>
+    
+</body>
+</html>

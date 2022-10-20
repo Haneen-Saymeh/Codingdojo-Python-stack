@@ -1,0 +1,14 @@
+.container{
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    background-color: salmon;
+    padding-left: 50px;
+    padding-top: 30px;
+}
+
+button{
+    background-color: saddlebrown;
+    color: white;
+    font-size: large;
+}

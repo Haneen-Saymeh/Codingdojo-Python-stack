@@ -1,0 +1,16 @@
+User.objects.create(first_name='Tony', last_name='Stark', email='tony@sth', age=35)
+User.objects.create(first_name='Doctor', last_name='Strang', email='strange@sth', age=40)
+User.objects.create(first_name='Winter', last_name='Soldier', email='winter@sth', age=100)
+User.objects.all()
+User.objects.all().values() 
+User.objects.last()
+User.objects.get(id=3).__dict__
+User.objects.first()
+User.objects.get(id=1).__dict__
+user3 = User.objects.get(id=3)
+user3.last_name = "Pancakes"
+user3.save()
+user2 = User.objects.get(id=2)
+user2.delete()
+User.objects.all().order_by("first_name")
+User.objects.all().order_by("-first_name") 

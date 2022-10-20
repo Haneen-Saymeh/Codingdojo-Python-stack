@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+    <h1>Welcome to our website</h1>
+    <p>test age</p>
+    <marquee> Hellooooo</marquee>
+
+    <p>{{name}}</p>
+    <p>{{var1}}</p>
+
+    {%for elem in var1%}
+    <p>{{elem}}</p>
+    {%endfor%}
+
+    {%for obj in var2%}
+    <p>{{obj["name"]}}-{{obj["country"]}}</p>
+    {%endfor%}
+
+
+    <table border="1">
+        <thead>
+            <td>Name</td>
+            <td>Country</td>
+            
+        </thead>
+        <tr>
+        {%for obj in var2%}
+       
+            <td>{{obj["name"]}}</td>
+            <td>{{obj["country"]}}  </td> 
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

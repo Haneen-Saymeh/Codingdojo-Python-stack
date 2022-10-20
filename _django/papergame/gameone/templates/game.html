@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'style.css' %}"> 
+
+</head>
+<body>
+    <div class="container">
+        <h1>欢迎来到</h1>
+        <!-- {% load static %} <img width="50x" src="{% static "gameone/static/img/paper.JPG" %}" alt="home" /> -->
+
+        <section>
+            <label>Pick one</label><select name="choosegame" id="game">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissor">scissor</option>
+            </select>
+            <button>Go</button>
+        </section>
+    </div>
+</body>
+</html>

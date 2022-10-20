@@ -1,0 +1,39 @@
+.container{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    background-color: palevioletred;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+
+h1 {
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+
+table{
+    border-color: white;
+    color: white;
+}
+
+button{
+    background-color: paleturquoise;
+    width: 130px;
+    height: 50px;
+    border: none;
+    border-radius: 10%;
+    color: saddlebrown;
+    font-size: 20px;
+    
+
+}

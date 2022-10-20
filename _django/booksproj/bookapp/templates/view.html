@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div  style="margin: 0 auto; width:500px;padding:10px; height:500px; border:1px solid black; background-color: aquamarine;">
+    <div style="margin-left: 400px; margin-top:20px"  ><a href="/"  >Go Back</a></div>
+    <h1>{{bookone.title}}</h1>
+    
+    <p>ID: {{bookone.id}}</p>
+    <p>Description: {{bookone.desc}}</p>
+    
+    <h2>Authors:</h2> 
+    
+    {%for author in bookone.authors.all%}
+
+    <p>{{author.first_name}}  {{author.last_name}}</p>
+    {%endfor%}
+
+    
+
+
+    <form action="/authtobook/{{bookone.id}}"  method="post" >
+        {% csrf_token %}
+    <select name="selectauthors" id="addauth">
+        {%for author in authors%}
+        {%if author not in bookone.authors.all%}
+        <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+        {%endif%}
+        {%endfor%}
+        
+        
+    </select>
+    <button  style="background-color:peachpuff " >Add</button>
+</form>
+
+
+
+</div>
+    
+    
+
+
+</body>
+</html>

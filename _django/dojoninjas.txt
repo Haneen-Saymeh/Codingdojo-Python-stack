@@ -1,0 +1,193 @@
+ Dojo.objects.create(name="Tony Stark", city="San Frasisco", state="ST")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="Dr. Strange", city = "Washington", state="WC")
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="Winter Soldier", city= "Nablus", state="NP")
+<Dojo: Dojo object (3)>
+>>> dojo1= Dojo.objects.get(id=1)
+>>> dojo1.delete()
+(1, {'dojo_ninja_app.Dojo': 1})
+>>> Dojo.objects.all()
+<QuerySet [<Dojo: Dojo object (2)>, <Dojo: Dojo object (3)>]>
+>>> dojo2= Dojo.objects.get(id=2)
+>>> dojo2.delete()
+(1, {'dojo_ninja_app.Dojo': 1})
+>>> dojo3= Dojo.objects.get(id=3)
+>>> dojo3.delete()
+(1, {'dojo_ninja_app.Dojo': 1})
+
+Ninja.objects.create(first_name= "Wang", last_name="Lie", dojo=Dojo.objects.get(id=4))
+
+Ninja.objects.create(first_name= "Hamodeh", last_name="Wang", dojo=Dojo.objects.get(id=5))
+Ninja.objects.create(first_name= "Thor", last_name="Loki", dojo=Dojo.objects.get(id=5))
+Ninja.objects.create(first_name= "Loki", last_name="Magic", dojo=Dojo.objects.get(id=5))
+
+Ninja.objects.create(first_name= "Jack", last_name="Sparrow", dojo=Dojo.objects.get(id=6))
+
+Ninja.objects.create(first_name= "Bane", last_name="TDNR", dojo=Dojo.objects.get(id=6))
+
+Ninja.objects.create(first_name= "Joker", last_name="Batmen", dojo=Dojo.objects.get(id=6))
+
+Dojo.objects.get(id=5).ninjas.last().__dict__
+
+Dojo.objects.get(id=6).ninjas.last().__dict__
+
+
+
+
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\dojo_ninja_proj>python manage.py makemigrations
+Migrations for 'dojo_ninja_app':
+  dojo_ninja_app\migrations\0001_initial.py
+    - Create model Dojo
+    - Create model Ninja
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\dojo_ninja_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninja_app, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying dojo_ninja_app.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\dojo_ninja_proj>python manage.py shell
+Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+
+>>> from dojo_ninja_app.models import *
+
+
+>>> Dojo.objects.create(name="Tony Stark", city="San Frasisco", state="ST")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="Dr. Strange", city = "Washington", state="WC")
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="Winter Soldier", city= "Nablus", state="NP")
+<Dojo: Dojo object (3)>
+
+
+
+>>> dojo1= Dojo.objects.get(id=1)
+>>> dojo1.delete()
+(1, {'dojo_ninja_app.Dojo': 1})
+>>> Dojo.objects.all()
+<QuerySet [<Dojo: Dojo object (2)>, <Dojo: Dojo object (3)>]>
+>>> dojo2= Dojo.objects.get(id=2)
+>>> dojo2.delete()
+(1, {'dojo_ninja_app.Dojo': 1})
+>>> dojo3= Dojo.objects.get(id=3)
+>>> dojo3.delete()
+(1, {'dojo_ninja_app.Dojo': 1})
+
+
+
+>>> Dojo.objects.create(name="Tony Stark", city="San Frasisco", state="ST")
+<Dojo: Dojo object (4)>
+>>> Dojo.objects.create(name="Dr. Strange", city = "Washington", state="WC")
+<Dojo: Dojo object (5)>
+>>> Dojo.objects.create(name="Winter Soldier", city= "Nablus", state="NP")
+<Dojo: Dojo object (6)>
+
+
+>>> Ninja.objects.create(first_name="Haninz", last_name="Sol", dojo=Dojo.objects.get(id=4))
+<Ninja: Ninja object (1)>
+>>> Ninja.objects.create(first_name= "Amir", last_name="Baghdadi", dojo=Dojo.objects.get(id=4))
+<Ninja: Ninja object (2)>
+>>> Ninja.objects.create(first_name= "Wang", last_name="Lie", dojo=Dojo.objects.get(id=4))
+
+<Ninja: Ninja object (3)>
+>>> Ninja.objects.create(first_name= "Hamodeh", last_name="Wang", dojo=Dojo.objects.get(id=5))
+<Ninja: Ninja object (4)>
+>>> Ninja.objects.create(first_name= "Thor", last_name="Loki", dojo=Dojo.objects.get(id=5))
+<Ninja: Ninja object (5)>
+>>> Ninja.objects.create(first_name= "Loki", last_name="Magic", dojo=Dojo.objects.get(id=5))
+
+<Ninja: Ninja object (6)>
+>>> Ninja.objects.create(first_name= "Jack", last_name="Sparrow", dojo=Dojo.objects.get(id=6))
+<Ninja: Ninja object (7)>
+>>> Ninja.objects.create(first_name= "Bane", last_name="TDNR", dojo=Dojo.objects.get(id=6))
+<Ninja: Ninja object (8)>
+>>> Ninja.objects.create(first_name= "Joker", last_name="Batmen", dojo=Dojo.objects.get(id=6))
+<Ninja: Ninja object (9)>
+
+
+>>> Dojo.objects.get(id=4).ninjas.all()
+<QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+
+>>> Dojo.objects.get(id=4).ninjas.all().values()
+<QuerySet [{'id': 1, 'first_name': 'Haninz', 'last_name': 'Sol', 'dojo_id': 4, 'created_at': datetime.datetime(2022, 9, 26, 8, 31, 9, 686831, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 31, 9, 686831, tzinfo=datetime.timezone.utc)}, {'id': 2, 'first_name': 'Amir', 'last_name': 'Baghdadi', 'dojo_id': 4, 'created_at': datetime.datetime(2022, 9, 26, 8, 32, 25, 121551, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 32, 25, 121551, tzinfo=datetime.timezone.utc)}, {'id': 3, 'first_name': 'Wang', 'last_name': 'Lie', 'dojo_id': 4, 'created_at': datetime.datetime(2022, 9, 26, 8, 33, 9, 872628, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 33, 9, 872628, tzinfo=datetime.timezone.utc)}]>
+
+>>> Dojo.objects.get(id=6).ninjas.all().values()
+<QuerySet [{'id': 7, 'first_name': 'Jack', 'last_name': 'Sparrow', 'dojo_id': 6, 'created_at': datetime.datetime(2022, 9, 26, 8, 36, 59, 308119, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 36, 59, 308119, tzinfo=datetime.timezone.utc)}, {'id': 8, 'first_name': 'Bane', 'last_name': 'TDNR', 'dojo_id': 6, 'created_at': datetime.datetime(2022, 9, 26, 8, 37, 24, 561316, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 37, 24, 561316, tzinfo=datetime.timezone.utc)}, {'id': 9, 'first_name': 'Joker', 'last_name': 'Batmen', 'dojo_id': 6, 'created_at': datetime.datetime(2022, 9, 26, 8, 37, 53, 42105, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 37, 53, 42105, tzinfo=datetime.timezone.utc)}]>
+
+
+
+
+
+
+
+
+>>> Dojo.objects.get(id=4).ninjas.last()
+<Ninja: Ninja object (3)>
+
+>>> Dojo.objects.get(id=4).ninjas.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000002395DAB4B20>, 'id': 3, 'first_name': 'Wang', 'last_name': 'Lie', 'dojo_id': 4, 'created_at': datetime.datetime(2022, 9, 26, 8, 33, 9, 872628, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 33, 9, 872628, tzinfo=datetime.timezone.utc)}
+
+>>> Dojo.objects.get(id=5).ninjas.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000002395DAB4C70>, 'id': 6, 'first_name': 'Loki', 'last_name': 'Magic', 'dojo_id': 5, 'created_at': datetime.datetime(2022, 9, 26, 8, 36, 1, 198506, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 36, 1, 198506, tzinfo=datetime.timezone.utc)}
+>>>
+
+>>> Dojo.objects.get(id=6).ninjas.last().__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000002395DAB4DC0>, 'id': 9, 'first_name': 'Joker', 'last_name': 'Batmen', 'dojo_id': 6, 'created_at': datetime.datetime(2022, 9, 26, 8, 37, 53, 42105, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 37, 53, 42105, tzinfo=datetime.timezone.utc)}
+>>> exit()
+
+
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\dojo_ninja_proj>python manage.py makemigrations
+It is impossible to add a non-nullable field 'desc' to dojo without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 2
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\dojo_ninja_proj>python manage.py makemigrations
+Migrations for 'dojo_ninja_app':
+  dojo_ninja_app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+
+(djangoPyEnv) D:\AXSOS bootcamp\python_stack\_django\dojo_ninja_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninja_app, sessions
+Running migrations:
+  Applying dojo_ninja_app.0002_dojo_desc... OK
+
+
+>>> from dojo_ninja_app.models import *
+>>> Dojo.objects.create(name="Batman", city="Ramallah", state="RM", desc="new dojo")
+
+<Dojo: Dojo object (7)>
+
+>>> Dojo.objects.all().values()
+<QuerySet [{'id': 4, 'name': 'Tony Stark', 'city': 'San Frasisco', 'state': 'ST', 'created_at': datetime.datetime(2022, 9, 26, 8, 28, 18, 768939, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 28, 18, 768939, tzinfo=datetime.timezone.utc), 'desc': 'old dojo'}, {'id': 5, 'name': 'Dr. Strange', 'city': 'Washington', 'state': 'WC', 'created_at': datetime.datetime(2022, 9, 26, 8, 28, 31, 342402, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 28, 31, 342402, tzinfo=datetime.timezone.utc), 'desc': 'old dojo'}, {'id': 6, 'name': 'Winter Soldier', 'city': 'Nablus', 'state': 'NP', 'created_at': datetime.datetime(2022, 9, 26, 8, 28, 41, 269810, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 8, 28, 41, 270811, tzinfo=datetime.timezone.utc), 'desc': 'old dojo'}, {'id': 7, 'name': 'Batman', 'city': 'Ramallah', 'state': 'RM', 'created_at': datetime.datetime(2022, 9, 26, 10, 10, 17, 70788, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 26, 10, 10, 17, 70788, tzinfo=datetime.timezone.utc), 'desc': 'new dojo'}]>
+>>>
+
+
+
+
+
